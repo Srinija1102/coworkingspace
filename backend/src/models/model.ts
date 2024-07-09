@@ -12,7 +12,7 @@ interface UsersInterface extends Document {
 }
 
 const usersSchema: Schema = new Schema<UsersInterface>({
-    name: { type: String, required: true },
+    name: { type: String, required: true, unique: true },
     email: { type: String, required: true, unique: true },
     password: { type: String, required: true },
     phone: { type: String },

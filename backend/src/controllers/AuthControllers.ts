@@ -19,12 +19,13 @@ export const login = async(req:Request,res:Response)=>{
                 })
             }
             if(body.password == user.password){
-                const token = jwt.sign({email : user.email},"jwtsecret");  //sending jwt make it store in localstorage in frontend
+                const token = jwt.sign({email : user.name},"jwtsecret");  //sending jwt make it store in localstorage in frontend
                 res.status(200).json({
                     msg: "user signed in",
                     jwt: token
                 })
-                localStorage.setItem("Token",token)  // saving jwt in localstorage
+                localStorage.setItem("Token",token);  // saving jwt in localstorage 
+                localStorage.setItem("user",user.name);
             }else{
                 return res.json({
                     msg: "Invalid password"
@@ -36,4 +37,8 @@ export const login = async(req:Request,res:Response)=>{
             msg : e
         })
     }
+}
+
+export const logout = async(req:Request,res:Response) => {
+    localStorage.clear();
 }
