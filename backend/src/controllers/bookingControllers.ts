@@ -3,7 +3,7 @@ import { BookingModel, UserModel } from "../models/model";
 
 //To get all the Bookings
 
-export const getAllBokkings = async (req: Request, res: Response) => {
+export const getAllBookings = async (req: Request, res: Response) => {
   try {
     //check if the user is an admin
     if ((req as any).user.role !== "admin") {
