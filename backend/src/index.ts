@@ -1,21 +1,24 @@
-import express,{Request,Response} from "express"
+import express, { Request, Response } from "express";
 import cors from "cors";
-import dbconnect from "./dbconnect";
-
-const app = express()
+import dbconnect from "./utils/dbconnect";
+import dotenv from "dotenv";
+import BookingRoutes from "./routes/BookingRoutes";
+dotenv.config();
+const app = express();
 const port = 3000;
 
-dbconnect()
+dbconnect();
 
-app.use(express.json())
-app.use(cors())
+app.use(express.json());
+app.use(cors());
+app.use("/api/v1/bookings", BookingRoutes);
 
-app.get("/",function(req,res){
-    res.json({
-        msg: "hello world!"
-    })
-})
+app.get("/", function (req, res) {
+  res.json({
+    msg: "hello world!",
+  });
+});
 
-app.listen(port,()=>{
-    console.log(`server listening on ${port}`)
-})
+app.listen(port, () => {
+  console.log(`server listening on ${port}`);
+});
