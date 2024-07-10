@@ -167,3 +167,23 @@ const coinsTransactionSchema: Schema = new Schema<CoinsTransactionInterface>({
 });
 
 export const CoinsTransactionModel = mongoose.model<CoinsTransactionInterface>('CoinsTransaction', coinsTransactionSchema);
+
+//Service Schema
+
+interface ServiceInterface extends Document {
+    user: mongoose.Types.ObjectId;
+    space: mongoose.Types.ObjectId;
+    name:String;
+    description: String;
+    rate: Number;
+    createdate: Date;
+}
+const ServiceSchema: Schema =new Schema<ServiceInterface>({
+    user: { type: Schema.Types.ObjectId, ref: "User", required: true },
+    space: { type: Schema.Types.ObjectId, ref: "Space", required: true },
+    name: { type: Schema.Types.ObjectId, ref: 'User', required: true },
+    description: { type: String },
+    rate: { type: Number, default: false },
+    createdAt: { type: Date, default: Date.now }
+});
+export const ServiceModel = mongoose.model<ServiceInterface>('Service', ServiceSchema);
