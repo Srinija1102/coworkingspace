@@ -1,21 +1,20 @@
-import {
-  createService,
-  deleteServiceById,
-  getAllService,
-  getServiceById,
-  updateServiceById,
-} from "../controllers/ServiceControlls";
-
 import { Router } from "express";
 import { protect } from "../middlewares/authMiddleware";
 import { admin } from "../middlewares/adminMiddleware";
+import {
+  createSpace,
+  getAllSpaces,
+  getSpaceById,
+  updateSpace,
+  deleteSpace
+} from "../controllers/SpaceController";
 
 const router = Router();
 
-router.post("/", protect, admin, createService);
-router.delete("/delete/:id", admin, deleteServiceById);
-router.get("/services", protect, getAllService);
-router.get("/services/:id", protect, getServiceById);
-router.put("/update/:id", admin, updateServiceById);
+router.post("/", protect, admin, createSpace);
+router.get("/", getAllSpaces);
+router.get("/:id", getSpaceById);
+router.put("/:id", protect, admin, updateSpace);
+router.delete("/:id", protect, admin, deleteSpace);
 
 export default router;

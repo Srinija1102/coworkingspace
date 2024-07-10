@@ -7,7 +7,7 @@ import {
   getSpaceById,
   updateSpace,
   deleteSpace
-} from "../controllers/space.controller";
+} from "../controllers/SpaceController";
 
 const router = Router();
 

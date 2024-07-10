@@ -6,7 +6,7 @@ import {
   getCoinPurchaseByUserId,
   updateCoinPurchaseStatus,
   deleteCoinPurchase
-} from "../controllers/coin.controller";
+} from "../controllers/CoinController";
 
 const router = Router();
 
