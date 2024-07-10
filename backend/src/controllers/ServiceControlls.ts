@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { ServiceModel, UserModel } from "../models/model";
+
+import { ServiceModel } from "../models/service.model";
 
 //To get all the Bookings
 
@@ -27,42 +28,39 @@ export const getServiceById = async (req: Request, res: Response) => {
   }
 };
 
-
 export const createService = async (req: Request, res: Response) => {
-  const { name,description,rate ,Date:createdAt} = req.body;
+  const { name, description, rate, Date: createdAt } = req.body;
   try {
     //check if the user is an admin
     if ((req as any).user.role !== "admin") {
-        return res.status(403).json({ message: "Access denied" });
-      }
+      return res.status(403).json({ message: "Access denied" });
+    }
     const newService = new ServiceModel({
       name,
       description,
       rate,
-      createdAt
+      createdAt,
     });
 
     const createService = await newService.save();
     res.status(201).json(createService);
   } catch (error) {
-    res
-      .status(500)
-      .json({ message: "Error in create Service", error });
+    res.status(500).json({ message: "Error in create Service", error });
   }
 };
 
 export const updateServiceById = async (req: Request, res: Response) => {
   const ServiceId = req.params.id;
-  const { name,description,rate ,Date:createdAt} = req.body;
+  const { name, description, rate, Date: createdAt } = req.body;
   try {
     //check if the user is an admin
     if ((req as any).user.role !== "admin") {
-        return res.status(403).json({ message: "Access denied" });
-      }
+      return res.status(403).json({ message: "Access denied" });
+    }
     const updateService = await ServiceModel.findByIdAndUpdate(
       ServiceId,
       { name, description, rate, createdAt },
-      {new:true}
+      { new: true }
     );
 
     if (!updateService) {
@@ -83,8 +81,8 @@ export const deleteServiceById = async (req: Request, res: Response) => {
   try {
     //check if the user is an admin
     if ((req as any).user.role !== "admin") {
-        return res.status(403).json({ message: "Access denied" });
-      }
+      return res.status(403).json({ message: "Access denied" });
+    }
     const deleteService = await ServiceModel.findByIdAndDelete(ServiceId);
     if (!deleteService) {
       return res.status(404).json({ message: "Service not found" });
@@ -96,4 +94,3 @@ export const deleteServiceById = async (req: Request, res: Response) => {
       .json({ message: "Server error in deleting Service controller", error });
   }
 };
-
