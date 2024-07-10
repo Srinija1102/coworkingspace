@@ -1,5 +1,5 @@
 import { Router } from "express";
-import { protect } from "../middleware/authMiddleware";
+import { protect } from "../middlewares/authMiddleware";
 import {
   createBooking,
   getAllBookings,
@@ -7,7 +7,7 @@ import {
   getBookingsByUserId,
   updateBookingStatus,
   deleteBooking
-} from "../controllers/booking.controller";
+} from "../controllers/bookingControllers";
 
 const router = Router();
 

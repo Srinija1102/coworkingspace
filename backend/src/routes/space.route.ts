@@ -1,5 +1,6 @@
 import { Router } from "express";
-import { protect, admin } from "../middleware/authMiddleware";
+import { protect } from "../middlewares/authMiddleware";
+import { admin } from "../middlewares/adminMiddleware";
 import {
   createSpace,
   getAllSpaces,
