@@ -1,5 +1,6 @@
 import { Request, Response } from "express";
-import { BookingModel, UserModel } from "../models/model";
+import { UserModel } from "../models/user.model";
+import { BookingModel } from "../models/booking.model";
 
 //To get all the Bookings
 
