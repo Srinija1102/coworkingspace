@@ -12,3 +12,10 @@ body,
   height: 100%;
   width: 100%;
 }
+@import "tailwindcss/tailwind.css";
+
+.glass {
+  background: rgba(255, 255, 255, 0.1);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
