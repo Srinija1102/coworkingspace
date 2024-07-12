@@ -14,14 +14,26 @@ const Explore: React.FC<OfferProps> = ({ title, description, imagesrc }) => {
           <img src={imagesrc} alt="Movie" />
         </figure>
         <div className="card-body">
-          <h2 className="card-title text-2xl">{title}</h2>
+          <h2 className="card-title text-2xl text-bold">{title}</h2>
           <p>{description}</p>
           <div className="card-actions justify-end  flex flex-col ">
-            <p className="text-1xl">
-              Starting from{" "}
-              <span className="text-red-700 text-2xl">Rs 999 hr</span>
-            </p>
-            <button className="btn btn-primary">More</button>
+            <div className="flex justify-end mr-5">
+              <p className="text-1xl mt-4 italic">
+                Starting from{" "}
+                <p className="text-red-700 text-2xl font-semibold">
+                  {" "}
+                  Rs 999 hr
+                </p>
+              </p>
+            </div>
+            <div
+              className="flex justify-end
+             mt-5 "
+            >
+              <button className="btn btn-primary bg-blue-500 text-white w-[50%] h-[40px] hover:bg-blue-400">
+                More
+              </button>
+            </div>
           </div>
         </div>
       </div>

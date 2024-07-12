@@ -1,10 +1,9 @@
 @media (min-width: 1024px) and (max-width: 1279px) {
-    .lg-only-center {
-      @apply container mx-auto;
-    }
-    
-    .lg-only-center-vertical {
-      @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
-    }
+  .lg-only-center {
+    @apply container mx-auto;
   }
-  
+
+  .lg-only-center-vertical {
+    @apply absolute top-1/2 left-1/2 transform -translate-x-1/2 -translate-y-1/2;
+  }
+}
