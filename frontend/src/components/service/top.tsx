@@ -1,5 +1,5 @@
 import React from "react";
-
+import Scramble from "../Landing/Scramble";
 import Offer from "./offer";
 import Footer from "../Footer/footer";
 import Explore from "./explore";
@@ -17,10 +17,18 @@ const Top: React.FC = () => {
       >
         <div className="m-20        sm:m-44 absolute  ">
           <h1 className="text-7xl sm:text-8xl font-bold text-white">
-            Our Services
+            <Scramble
+              totype=" Our Services "
+              className="text-7xl sm:text-8xl font-bold text-white"
+              speed={0.2}
+            />
           </h1>
           <p className="text-gray-300  font-semibold mt-4 sm:text-2xl">
-            Everywhere your Buisness should be
+            <Scramble
+              totype="   Everywhere your Buisness should be"
+              className="text-gray-300  font-semibold mt-4 sm:text-2xl"
+              speed={0.5}
+            />
           </p>
         </div>
       </div>

@@ -1,17 +1,28 @@
 import { useScramble } from "use-scramble";
-
-const Scramble = (prop:any) => {
-
-  const { ref } = useScramble({ 
+//Making the component reusable
+const Scramble = (prop: any) => {
+  let classnigga = "font-Raleway font-extrabold text-3xl md:text-6xl ";
+  let speed = 0.2;
+  if (prop.speed) {
+    speed = Number(prop.speed);
+  }
+  const { ref } = useScramble({
     text: `${prop.totype}`,
-    speed: 0.2
+    speed: Number(speed),
   });
 
-  return(
+  if (prop.className) {
+    classnigga = prop.className;
+  }
+  return (
     <div>
-        <p ref={ref} className="font-Raleway font-extrabold text-3xl md:text-6xl" />
+      <p
+        ref={ref}
+        // className="font-Raleway font-extrabold text-3xl md:text-6xl "
+        className={classnigga}
+      />
     </div>
-  )
-}
+  );
+};
 
 export default Scramble;
